@@ -21,5 +21,21 @@ class TestApplyWeightConstructor {
 		
 		assertEquals(9.8, weightedGrade.getValue());
 	}
+	
+	@Test
+	void testApplyWeightWithToCompositeGrade() {
+		Grade grade1 = new SimpleGrade(90.00);
+		Grade grade2 = new SimpleGrade(70.00);
+		Grade grade3 = new SimpleGrade(60.00);
+		
+		CompositeGrade comp = new CompositeGrade();
+		comp.addGrade(grade1);
+		comp.addGrade(grade2);
+		comp.addGrade(grade3);
+
+		Grade weightedGrade = new ApplyWeight(comp, .10);
+		
+		assertEquals(22.00, weightedGrade.getValue());
+	}
 
 }
