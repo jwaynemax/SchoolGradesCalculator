@@ -12,8 +12,7 @@ class TestWeightedGradeGetValue {
 	HelperClass helper = new HelperClass();
 
 	@Test
-	void test() {
-		
+	void testWithoutInitalValueOfWeightedGradeGetValue() {
 		assertEquals(0.0, helper.getValue());
 	}
 
