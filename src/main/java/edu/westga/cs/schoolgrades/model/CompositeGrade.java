@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class CompositeGrade implements Grade {
 	
 	private ArrayList<Grade> grades;
+	private double grade;
 	
 	public CompositeGrade() {
 		grades = new ArrayList<Grade>();
@@ -14,13 +15,17 @@ public class CompositeGrade implements Grade {
 		this.grades.add(grade);
 	}
 	
+	public double gradeStrategy(GradeStrategy strategy){
+		return grade;
+	}
+	
 	@Override
 	public double getValue() {
-		double value = 0;
+		grade = 0;
 		for (int i = 0; i < grades.size(); i++) {
-			value += grades.get(i).getValue();
+			grade += grades.get(i).getValue();
 		}
 		
-		return value;
+		return grade;
 	}
 }
