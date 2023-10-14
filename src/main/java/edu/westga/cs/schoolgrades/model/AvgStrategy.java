@@ -2,8 +2,8 @@ package edu.westga.cs.schoolgrades.model;
 
 import java.util.ArrayList;
 
-public class SumStrategy implements GradeStrategy{
-
+public class AvgStrategy implements GradeStrategy{
+	
 	@Override
 	public double calcGradeStrategy(ArrayList<Grade> grades) {
 		double grade = 0;
@@ -11,6 +11,6 @@ public class SumStrategy implements GradeStrategy{
 			grade += grades.get(i).getValue();
 		}
 		
-		return grade;
+		return grade / grades.size();
 	}
 }
