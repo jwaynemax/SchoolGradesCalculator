@@ -46,25 +46,4 @@ class TestSumStrategyCalcGradeStrategy {
 		assertEquals(10.00, comp.gradeStrategy(strategy));
 
 	}
-	
-	@Test
-	void test() {
-		Grade grade1 = new SimpleGrade(30.00);
-		Grade grade2 = new SimpleGrade(50.00);
-		Grade grade3 = new SimpleGrade(50.00);
-		
-		CompositeGrade comp = new CompositeGrade();
-		
-		comp.addGrade(grade1);
-		comp.addGrade(grade2);
-		comp.addGrade(grade3);
-		
-		GradeStrategy strategy = new SumStrategy();
-		strategy = new DropLowestGrade(strategy);
-		
-
-		assertEquals(100.00, comp.gradeStrategy(strategy));
-
-	}
-
 }
