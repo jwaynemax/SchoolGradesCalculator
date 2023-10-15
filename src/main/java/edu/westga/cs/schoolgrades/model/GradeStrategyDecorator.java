@@ -1,5 +1,5 @@
 package edu.westga.cs.schoolgrades.model;
 
-public interface GradeStrategyDecorator extends GradeStrategy {
+public abstract class GradeStrategyDecorator implements GradeStrategy {
 	
 }

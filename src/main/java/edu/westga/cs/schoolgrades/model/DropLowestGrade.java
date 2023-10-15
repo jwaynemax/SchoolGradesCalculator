@@ -2,7 +2,7 @@ package edu.westga.cs.schoolgrades.model;
 
 import java.util.ArrayList;
 
-public class DropLowestGrade implements GradeStrategyDecorator {	
+public class DropLowestGrade extends GradeStrategyDecorator {	
 	
 	private GradeStrategy gradeStrategy;
 	

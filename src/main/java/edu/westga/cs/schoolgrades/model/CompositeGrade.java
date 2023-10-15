@@ -17,7 +17,6 @@ public class CompositeGrade implements Grade {
 	public double gradeStrategy(GradeStrategy strategy){
 		return strategy.calcGradeStrategy(grades);
 	}
-
 	
 	@Override
 	public double getValue() {
