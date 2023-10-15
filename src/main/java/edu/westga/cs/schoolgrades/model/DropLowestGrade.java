@@ -26,7 +26,4 @@ public class DropLowestGrade extends GradeStrategyDecorator {
 		
 		return this.gradeStrategy.calcGradeStrategy(grades);
 	}
-	
-	
-
 }
