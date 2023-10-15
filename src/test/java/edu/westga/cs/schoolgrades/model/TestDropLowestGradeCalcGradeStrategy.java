@@ -29,9 +29,9 @@ class TestDropLowestGradeCalcGradeStrategy {
 
 	@Test
 	void testAvgStrategyCalled() {
-		Grade grade1 = new SimpleGrade(30.00);
+		Grade grade1 = new SimpleGrade(50.00);
 		Grade grade2 = new SimpleGrade(30.00);
-		Grade grade3 = new SimpleGrade(50.00);
+		Grade grade3 = new SimpleGrade(30.00);
 		
 		ArrayList comp = new ArrayList<Grade>();
 		
@@ -64,5 +64,4 @@ class TestDropLowestGradeCalcGradeStrategy {
 		assertEquals(80.00, decoration.calcGradeStrategy(comp));
 
 	}
-
 }
