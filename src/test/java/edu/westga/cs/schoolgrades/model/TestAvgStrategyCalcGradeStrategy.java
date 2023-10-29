@@ -18,7 +18,7 @@ class TestAvgStrategyCalcGradeStrategy {
 		comp.addGrade(grade2);
 		comp.addGrade(grade3);
 		
-		GradeStrategy strategy = new AvgStrategy();
+		GradeCalculationStrategy strategy = new AverageOfGradesStrategy();
 		
 		assertEquals(20.00, comp.gradeStrategy(strategy));
 
@@ -32,7 +32,7 @@ class TestAvgStrategyCalcGradeStrategy {
 		
 		comp.addGrade(grade1);
 		
-		GradeStrategy strategy = new AvgStrategy();
+		GradeCalculationStrategy strategy = new AverageOfGradesStrategy();
 		
 		assertEquals(10.00, comp.gradeStrategy(strategy));
 

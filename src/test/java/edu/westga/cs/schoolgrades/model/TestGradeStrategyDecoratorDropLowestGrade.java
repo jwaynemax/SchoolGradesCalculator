@@ -18,7 +18,7 @@ class TestGradeStrategyDecoratorDropLowestGrade {
 		comp.addGrade(grade2);
 		comp.addGrade(grade3);
 		
-		GradeStrategy strategy = new SumStrategy();
+		GradeCalculationStrategy strategy = new SumOfGradesStrategy();
 		strategy = new DropLowestGrade(strategy);
 		
 
@@ -38,7 +38,7 @@ class TestGradeStrategyDecoratorDropLowestGrade {
 		comp.addGrade(grade2);
 		comp.addGrade(grade3);
 		
-		GradeStrategy strategy = new AvgStrategy();
+		GradeCalculationStrategy strategy = new AverageOfGradesStrategy();
 		strategy = new DropLowestGrade(strategy);
 		
 
@@ -58,7 +58,7 @@ class TestGradeStrategyDecoratorDropLowestGrade {
 		comp.addGrade(grade2);
 		comp.addGrade(grade3);
 		
-		GradeStrategy strategy = new AvgStrategy();
+		GradeCalculationStrategy strategy = new AverageOfGradesStrategy();
 		strategy = new DropLowestGrade(strategy);
 		
 

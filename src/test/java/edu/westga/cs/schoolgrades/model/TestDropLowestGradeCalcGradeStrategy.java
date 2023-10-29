@@ -20,7 +20,7 @@ class TestDropLowestGradeCalcGradeStrategy {
 		comp.add(grade2);
 		comp.add(grade3);
 		
-		GradeStrategy strategy = new SumStrategy();
+		GradeCalculationStrategy strategy = new SumOfGradesStrategy();
 		GradeStrategyDecorator decoration = new DropLowestGrade(strategy);
 
 		assertEquals(80.00, decoration.calcGradeStrategy(comp));
@@ -39,7 +39,7 @@ class TestDropLowestGradeCalcGradeStrategy {
 		comp.add(grade2);
 		comp.add(grade3);
 		
-		GradeStrategy strategy = new AvgStrategy();
+		GradeCalculationStrategy strategy = new AverageOfGradesStrategy();
 		GradeStrategyDecorator decoration = new DropLowestGrade(strategy);
 
 		assertEquals(40.00, decoration.calcGradeStrategy(comp));
@@ -58,7 +58,7 @@ class TestDropLowestGradeCalcGradeStrategy {
 		comp.add(grade2);
 		comp.add(grade3);
 		
-		GradeStrategy strategy = new SumStrategy();
+		GradeCalculationStrategy strategy = new SumOfGradesStrategy();
 		GradeStrategyDecorator decoration = new DropLowestGrade(strategy);
 
 		assertEquals(80.00, decoration.calcGradeStrategy(comp));

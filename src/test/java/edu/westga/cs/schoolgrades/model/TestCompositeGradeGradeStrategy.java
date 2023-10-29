@@ -11,7 +11,7 @@ class TestCompositeGradeGradeStrategy {
 		
 		CompositeGrade comp = new CompositeGrade();
 		
-		GradeStrategy strategy = new SumStrategy();
+		GradeCalculationStrategy strategy = new SumOfGradesStrategy();
 		
 		assertEquals(0.00, comp.gradeStrategy(strategy));
 	}
@@ -28,7 +28,7 @@ class TestCompositeGradeGradeStrategy {
 		comp.addGrade(grade2);
 		comp.addGrade(grade1);
 		
-		GradeStrategy strategy = new SumStrategy();
+		GradeCalculationStrategy strategy = new SumOfGradesStrategy();
 		
 		assertEquals(240.00, comp.gradeStrategy(strategy));
 	}
@@ -45,7 +45,7 @@ class TestCompositeGradeGradeStrategy {
 		comp.addGrade(grade2);
 		comp.addGrade(grade1);
 		
-		GradeStrategy strategy = new AvgStrategy();
+		GradeCalculationStrategy strategy = new AverageOfGradesStrategy();
 		
 		assertEquals(70.00, comp.gradeStrategy(strategy));
 	}
