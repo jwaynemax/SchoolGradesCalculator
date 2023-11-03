@@ -11,33 +11,32 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs.schoolgrades.controllers.SchoolGradesController">
    <center>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Quizzes" />
-                  <ListView prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="quizListView" prefHeight="200.0" prefWidth="200.0" />
                   <Label text="Quiz Subtotal" />
-                  <TextField />
+                  <TextField fx:id="quizSubtotal" />
                </children>
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Homeworks" />
-                  <ListView prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="hwList" prefHeight="200.0" prefWidth="200.0" />
                   <Label text="HW Subtotal" />
-                  <TextField />
+                  <TextField fx:id="hwSubtotal" />
                </children>
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Exams" />
-                  <ListView prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="examList" prefHeight="200.0" prefWidth="200.0" />
                   <Label text="Exam Subtotal" />
-                  <TextField />
+                  <TextField fx:id="examSubtotal" />
                </children>
             </VBox>
          </children>
@@ -48,9 +47,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="Data">
             <items>
-              <MenuItem mnemonicParsing="false" text="Add quiz" />
-                  <MenuItem mnemonicParsing="false" text="Add homework" />
-                  <MenuItem mnemonicParsing="false" text="Add exam" />
+              	<MenuItem fx:id="quizMenuItm" mnemonicParsing="false" onAction="#addQuizMenuItemClicked" text="Add quiz" />              	
+                <MenuItem fx:id="hwMenuItm" mnemonicParsing="false" text="Add homework" />
+                  <MenuItem fx:id="examMenuItm" mnemonicParsing="false" text="Add exam" />
             </items>
           </Menu>
         </menus>
@@ -60,8 +59,8 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
          <children>
             <Label text="Final Grade:" />
-            <TextField />
-            <Button mnemonicParsing="false" text="Recalculate" />
+            <TextField fx:id="finalGrade" />
+            <Button fx:id="recalculateBtn" mnemonicParsing="false" text="Recalculate" />
          </children>
       </HBox>
    </bottom>
