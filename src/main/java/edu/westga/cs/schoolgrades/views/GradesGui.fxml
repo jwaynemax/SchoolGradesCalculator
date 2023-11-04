@@ -48,7 +48,7 @@
           <Menu mnemonicParsing="false" text="Data">
             <items>
               	<MenuItem fx:id="quizMenuItm" mnemonicParsing="false" onAction="#addQuizMenuItemClicked" text="Add quiz" />              	
-                <MenuItem fx:id="hwMenuItm" mnemonicParsing="false" text="Add homework" />
+                <MenuItem fx:id="hwMenuItm" mnemonicParsing="false" onAction="#addHwMenuItemClicked" text="Add homework" />
                   <MenuItem fx:id="examMenuItm" mnemonicParsing="false" text="Add exam" />
             </items>
           </Menu>

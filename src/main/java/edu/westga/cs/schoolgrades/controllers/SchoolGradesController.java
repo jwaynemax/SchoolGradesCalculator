@@ -1,6 +1,7 @@
 package edu.westga.cs.schoolgrades.controllers;
 
 
+import edu.westga.cs.schoolgrades.model.AverageOfGradesStrategy;
 import edu.westga.cs.schoolgrades.model.CompositeGrade;
 import edu.westga.cs.schoolgrades.model.Grade;
 import edu.westga.cs.schoolgrades.model.SimpleGrade;
@@ -29,26 +30,41 @@ public class SchoolGradesController {
 
     @FXML
     private ListView<Double> quizListView;
+    
+    @FXML
+    private ListView<Double> hwListView;
 
     @FXML
     private ObservableList<Double> quizList = FXCollections.observableArrayList(0.00);
     
     @FXML
+    private ObservableList<Double> hwList = FXCollections.observableArrayList(0.00);
+    
+    @FXML
 	private TextField quizSubtotal;
     
-	private DoubleProperty doubleProp = new SimpleDoubleProperty();
-
+    @FXML
+	private TextField hwSubtotal;
     
-    private SimpleGrade quizGrade;
+	private DoubleProperty quizDoubleProp = new SimpleDoubleProperty();
+	private DoubleProperty hwDoubleProp = new SimpleDoubleProperty();
+
+	private SimpleGrade hwSimpleGrade;
+    private AverageOfGradesStrategy avgHw = new AverageOfGradesStrategy();
+    private CompositeGrade hwComp = new CompositeGrade(avgHw);
+    
+    private SimpleGrade quizSimpleGrade;
     private SumOfGradesStrategy sumQuiz = new SumOfGradesStrategy();
     private CompositeGrade quizComp = new CompositeGrade(sumQuiz);
 
     
     	public void initialize() {
+    		hwListView.setItems(hwList);
+    		hwListView.setEditable(true);
+    		hwListView.setCellFactory(param -> new TextFieldListCell<>(new DoubleStringConverter()));
+    		
     		quizListView.setItems(quizList);
-    		
     		quizListView.setEditable(true);
-    		
     		quizListView.setCellFactory(param -> new TextFieldListCell<>(new DoubleStringConverter()));
     		
     		class DoubleStringConverter extends StringConverter<Double> {
@@ -62,19 +78,33 @@ public class SchoolGradesController {
     		        return Double.parseDouble(value);
     		    }
     		}
-
+    		
+    		hwListView.setOnEditCommit(event -> {
+                int index = event.getIndex();
+                Double newValue = event.getNewValue();
+                hwList.set(index, newValue);
+                
+                hwSimpleGrade = new SimpleGrade(newValue);
+                hwComp.add(hwSimpleGrade);
+            });
+    		
     		quizListView.setOnEditCommit(event -> {
                 int index = event.getIndex();
                 Double newValue = event.getNewValue();
                 quizList.set(index, newValue);
                 
-                quizGrade = new SimpleGrade(newValue);
-                quizComp.add(quizGrade);
+                quizSimpleGrade = new SimpleGrade(newValue);
+                quizComp.add(quizSimpleGrade);
             });
         }
 
     
-
+    	@FXML
+        public void addHwMenuItemClicked() {
+    		hwList.add(0.00);
+    		
+        }
+    	
     	@FXML
         public void addQuizMenuItemClicked() {
     		quizList.add(0.00);
@@ -84,8 +114,11 @@ public class SchoolGradesController {
     	@FXML
         public void recalculate() {
     		
-    		this.quizSubtotal.textProperty().bind(this.doubleProp.asString());
-			this.doubleProp.set(this.quizComp.getValue());
+    		this.hwSubtotal.textProperty().bind(this.hwDoubleProp.asString());
+			this.hwDoubleProp.set(this.hwComp.getValue());
+    		
+    		this.quizSubtotal.textProperty().bind(this.quizDoubleProp.asString());
+			this.quizDoubleProp.set(this.quizComp.getValue());
     		    		
     		    		    		
         }
