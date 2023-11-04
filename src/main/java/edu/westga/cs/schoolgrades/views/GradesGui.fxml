@@ -49,7 +49,7 @@
             <items>
               	<MenuItem fx:id="quizMenuItm" mnemonicParsing="false" onAction="#addQuizMenuItemClicked" text="Add quiz" />              	
                 <MenuItem fx:id="hwMenuItm" mnemonicParsing="false" onAction="#addHwMenuItemClicked" text="Add homework" />
-                  <MenuItem fx:id="examMenuItm" mnemonicParsing="false" text="Add exam" />
+                  <MenuItem fx:id="examMenuItm" mnemonicParsing="false" onAction="#addExamMenuItemClicked" text="Add exam" />
             </items>
           </Menu>
         </menus>
