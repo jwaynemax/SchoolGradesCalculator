@@ -3,6 +3,7 @@ package edu.westga.cs.schoolgrades.controllers;
 
 import edu.westga.cs.schoolgrades.model.AverageOfGradesStrategy;
 import edu.westga.cs.schoolgrades.model.CompositeGrade;
+import edu.westga.cs.schoolgrades.model.DropLowestStrategy;
 import edu.westga.cs.schoolgrades.model.SimpleGrade;
 import edu.westga.cs.schoolgrades.model.SumOfGradesStrategy;
 import javafx.collections.FXCollections;
@@ -56,7 +57,8 @@ public class SchoolGradesController {
 
 	private SimpleGrade hwSimpleGrade;
     private AverageOfGradesStrategy avgHw = new AverageOfGradesStrategy();
-    private CompositeGrade hwComp = new CompositeGrade(avgHw);
+	private DropLowestStrategy dropLowestHw = new DropLowestStrategy(avgHw);
+    private CompositeGrade hwComp = new CompositeGrade(dropLowestHw);
     
     private SimpleGrade quizSimpleGrade;
     private SumOfGradesStrategy sumQuiz = new SumOfGradesStrategy();
