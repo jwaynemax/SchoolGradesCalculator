@@ -92,6 +92,7 @@ public class SchoolGradesController {
 		examSubtotal.setEditable(false);
 		hwSubtotal.setEditable(false);
 		quizSubtotal.setEditable(false);
+		finalGrade.setEditable(false);
 
 		examListView.setItems(examList);
 		examListView.setEditable(true);

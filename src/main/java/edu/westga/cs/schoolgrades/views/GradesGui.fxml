@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -18,7 +19,10 @@
             <VBox accessibleHelp="Column for quizzes" accessibleText="Column for quizzes" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Quizzes" />
-                  <ListView fx:id="quizListView" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="quizListView" prefHeight="200.0" prefWidth="200.0">
+                     <tooltip>
+                        <Tooltip text="Column for quiz grades" />
+                     </tooltip></ListView>
                   <Label text="Quiz Subtotal" />
                   <TextField fx:id="quizSubtotal" accessibleHelp="Quiz Subtotal" accessibleText="Quiz subtotal" />
                </children>
@@ -26,7 +30,10 @@
             <VBox accessibleHelp="Column for homework" accessibleText="Column for homework" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Homeworks" />
-                  <ListView fx:id="hwListView" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="hwListView" prefHeight="200.0" prefWidth="200.0">
+                     <tooltip>
+                        <Tooltip text="Column for homework grades" />
+                     </tooltip></ListView>
                   <Label text="HW Subtotal" />
                   <TextField fx:id="hwSubtotal" accessibleHelp="Homework subtotal" accessibleText="Homework subtotal" />
                </children>
@@ -34,7 +41,10 @@
             <VBox accessibleHelp="Column for exams" accessibleText="Column for exams" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Exams" />
-                  <ListView fx:id="examListView" prefHeight="200.0" prefWidth="200.0" />
+                  <ListView fx:id="examListView" prefHeight="200.0" prefWidth="200.0">
+                     <tooltip>
+                        <Tooltip text="Colum for exam grades" />
+                     </tooltip></ListView>
                   <Label text="Exam Subtotal" />
                   <TextField fx:id="examSubtotal" accessibleHelp="Exam Subtotal" accessibleText="Exam subtotal" />
                </children>
@@ -53,14 +63,23 @@
             </items>
           </Menu>
         </menus>
+         <tooltip>
+            <Tooltip text="Add data menu" />
+         </tooltip>
       </MenuBar>
    </top>
    <bottom>
-      <HBox accessibleHelp="Final Grade" accessibleText="Final Grade" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <Label text="Final Grade:" />
-            <TextField fx:id="finalGrade" />
-            <Button fx:id="recalculateBtn" accessibleHelp="Recalculate" accessibleText="Recalculate" mnemonicParsing="false" onAction="#recalculate" text="Recalculate" />
+            <Label accessibleHelp="Final Grade" accessibleText="Final Grade" text="Final Grade:" />
+            <TextField fx:id="finalGrade">
+               <tooltip>
+                  <Tooltip text="Final grade" />
+               </tooltip></TextField>
+            <Button fx:id="recalculateBtn" accessibleHelp="Recalculate" accessibleText="Recalculate" mnemonicParsing="false" onAction="#recalculate" text="Recalculate">
+               <tooltip>
+                  <Tooltip text="Recalculate grade" />
+               </tooltip></Button>
          </children>
       </HBox>
    </bottom>
