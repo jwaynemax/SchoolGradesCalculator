@@ -4,9 +4,9 @@ package edu.westga.cs.schoolgrades.controllers;
 import edu.westga.cs.schoolgrades.model.AverageOfGradesStrategy;
 import edu.westga.cs.schoolgrades.model.CompositeGrade;
 import edu.westga.cs.schoolgrades.model.DropLowestStrategy;
-import edu.westga.cs.schoolgrades.model.Grade;
 import edu.westga.cs.schoolgrades.model.SimpleGrade;
 import edu.westga.cs.schoolgrades.model.SumOfGradesStrategy;
+import edu.westga.cs.schoolgrades.model.WeightedGrade;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -48,9 +48,14 @@ public class SchoolGradesController {
     @FXML
 	private TextField quizSubtotal;
     
+    @FXML
+	private TextField finalGrade;
+    
     private DoubleProperty examDoubleProp = new SimpleDoubleProperty();    
 	private DoubleProperty hwDoubleProp = new SimpleDoubleProperty();
     private DoubleProperty quizDoubleProp = new SimpleDoubleProperty();
+    private DoubleProperty finalGradeProp = new SimpleDoubleProperty();
+
     
     private SimpleGrade examSimpleGrade;
     private AverageOfGradesStrategy avgExam = new AverageOfGradesStrategy();
@@ -165,6 +170,18 @@ public class SchoolGradesController {
     		
     		this.quizSubtotal.textProperty().bind(this.quizDoubleProp.asString());
 			this.quizDoubleProp.set(this.quizComp.getValue());
+			
+			this.calculateFinal();
     		    			    		
         }
+
+		private void calculateFinal() {
+			WeightedGrade quizFinal = new WeightedGrade(this.quizComp, .2);
+			WeightedGrade hwFinal = new WeightedGrade(this.hwComp, .3);
+			WeightedGrade examFinal = new WeightedGrade(this.examComp, .5);
+
+			this.finalGrade.textProperty().bind(this.finalGradeProp.asString());
+			this.finalGradeProp.set(quizFinal.getValue() + hwFinal.getValue() + examFinal.getValue());
+						
+		}
 }
