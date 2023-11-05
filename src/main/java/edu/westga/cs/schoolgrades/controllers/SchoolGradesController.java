@@ -4,6 +4,7 @@ package edu.westga.cs.schoolgrades.controllers;
 import edu.westga.cs.schoolgrades.model.AverageOfGradesStrategy;
 import edu.westga.cs.schoolgrades.model.CompositeGrade;
 import edu.westga.cs.schoolgrades.model.DropLowestStrategy;
+import edu.westga.cs.schoolgrades.model.Grade;
 import edu.westga.cs.schoolgrades.model.SimpleGrade;
 import edu.westga.cs.schoolgrades.model.SumOfGradesStrategy;
 import javafx.collections.FXCollections;
@@ -66,6 +67,16 @@ public class SchoolGradesController {
 
     
     	public void initialize() {
+    		
+    		examSimpleGrade = new SimpleGrade(0.00);
+            examComp.add(examSimpleGrade);
+            
+            hwSimpleGrade = new SimpleGrade(0.00);
+            hwComp.add(hwSimpleGrade);
+            
+            quizSimpleGrade = new SimpleGrade(0.00);
+            quizComp.add(quizSimpleGrade);
+    		
     		examListView.setItems(examList);
     		examListView.setEditable(true);
     		examListView.setCellFactory(param -> new TextFieldListCell<>(new DoubleStringConverter()));
@@ -96,7 +107,8 @@ public class SchoolGradesController {
                 examList.set(index, newValue);
                 
                 examSimpleGrade = new SimpleGrade(newValue);
-                examComp.add(examSimpleGrade);
+                examComp.removeAt(index);
+                examComp.add(examSimpleGrade, index);
             });
     		
     		hwListView.setOnEditCommit(event -> {
@@ -105,7 +117,8 @@ public class SchoolGradesController {
                 hwList.set(index, newValue);
                 
                 hwSimpleGrade = new SimpleGrade(newValue);
-                hwComp.add(hwSimpleGrade);
+                hwComp.removeAt(index);
+                hwComp.add(hwSimpleGrade, index);
             });
     		
     		quizListView.setOnEditCommit(event -> {
@@ -114,26 +127,31 @@ public class SchoolGradesController {
                 quizList.set(index, newValue);
                 
                 quizSimpleGrade = new SimpleGrade(newValue);
-                quizComp.add(quizSimpleGrade);
+                quizComp.removeAt(index);
+                quizComp.add(quizSimpleGrade, index);
             });
         }
 
     	@FXML
         public void addExamMenuItemClicked() {
     		examList.add(0.00);
-    		
+    		examSimpleGrade = new SimpleGrade(0.00);
+            examComp.add(examSimpleGrade);
         }
     
     	@FXML
         public void addHwMenuItemClicked() {
     		hwList.add(0.00);
+    		hwSimpleGrade = new SimpleGrade(0.00);
+            hwComp.add(hwSimpleGrade);
     		
         }
     	
     	@FXML
         public void addQuizMenuItemClicked() {
     		quizList.add(0.00);
-    		
+    		quizSimpleGrade = new SimpleGrade(0.00);
+            quizComp.add(quizSimpleGrade);
         }
     	
     	@FXML
