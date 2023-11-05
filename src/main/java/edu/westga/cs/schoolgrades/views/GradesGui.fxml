@@ -15,35 +15,35 @@
    <center>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+            <VBox accessibleHelp="Column for quizzes" accessibleText="Column for quizzes" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Quizzes" />
                   <ListView fx:id="quizListView" prefHeight="200.0" prefWidth="200.0" />
                   <Label text="Quiz Subtotal" />
-                  <TextField fx:id="quizSubtotal" />
+                  <TextField fx:id="quizSubtotal" accessibleHelp="Quiz Subtotal" accessibleText="Quiz subtotal" />
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+            <VBox accessibleHelp="Column for homework" accessibleText="Column for homework" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Homeworks" />
                   <ListView fx:id="hwListView" prefHeight="200.0" prefWidth="200.0" />
                   <Label text="HW Subtotal" />
-                  <TextField fx:id="hwSubtotal" />
+                  <TextField fx:id="hwSubtotal" accessibleHelp="Homework subtotal" accessibleText="Homework subtotal" />
                </children>
             </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+            <VBox accessibleHelp="Column for exams" accessibleText="Column for exams" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Exams" />
                   <ListView fx:id="examListView" prefHeight="200.0" prefWidth="200.0" />
                   <Label text="Exam Subtotal" />
-                  <TextField fx:id="examSubtotal" />
+                  <TextField fx:id="examSubtotal" accessibleHelp="Exam Subtotal" accessibleText="Exam subtotal" />
                </children>
             </VBox>
          </children>
       </HBox>
    </center>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar accessibleHelp="Data" accessibleText="Data" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Data">
             <items>
@@ -56,11 +56,11 @@
       </MenuBar>
    </top>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
+      <HBox accessibleHelp="Final Grade" accessibleText="Final Grade" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
          <children>
             <Label text="Final Grade:" />
             <TextField fx:id="finalGrade" />
-            <Button fx:id="recalculateBtn" mnemonicParsing="false" onAction="#recalculate" text="Recalculate" />
+            <Button fx:id="recalculateBtn" accessibleHelp="Recalculate" accessibleText="Recalculate" mnemonicParsing="false" onAction="#recalculate" text="Recalculate" />
          </children>
       </HBox>
    </bottom>

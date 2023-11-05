@@ -13,7 +13,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.util.StringConverter;
-import javafx.util.converter.DoubleStringConverter;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 
@@ -89,6 +88,10 @@ public class SchoolGradesController {
 
 		quizSimpleGrade = new SimpleGrade(0.00);
 		quizComp.add(quizSimpleGrade);
+		
+		examSubtotal.setEditable(false);
+		hwSubtotal.setEditable(false);
+		quizSubtotal.setEditable(false);
 
 		examListView.setItems(examList);
 		examListView.setEditable(true);
