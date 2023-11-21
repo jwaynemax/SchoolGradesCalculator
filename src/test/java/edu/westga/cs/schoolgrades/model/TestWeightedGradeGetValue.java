@@ -10,11 +10,11 @@ public class TestWeightedGradeGetValue {
 
 	private static final double DELTA = 0.001;
 	private WeightedGrade weightedGrade;
-	private Grade mockGrade;
+	private SimpleGrade mockGrade;
 	
 	@BeforeEach
 	public void setup() {
-		mockGrade = mock(Grade.class);
+		mockGrade = mock(SimpleGrade.class);
 		when(mockGrade.getValue()).thenReturn(100.00);
 	}
 	
