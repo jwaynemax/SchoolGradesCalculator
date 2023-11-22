@@ -3,6 +3,7 @@ package edu.westga.cs.schoolgrades.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.List;
 
@@ -22,6 +23,10 @@ public class TestCompositeGradeAdd {
 		mockGrade0 = mock(SimpleGrade.class);
 		mockGrade1 = mock(SimpleGrade.class);
 		mockGrade3 = mock(SimpleGrade.class);
+		
+		when(mockGrade0.getValue()).thenReturn(10.00);
+		when(mockGrade1.getValue()).thenReturn(20.00);
+		when(mockGrade3.getValue()).thenReturn(30.00);
 	}
 	
 	@Test
